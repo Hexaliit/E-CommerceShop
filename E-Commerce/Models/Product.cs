@@ -1,6 +1,15 @@
-﻿namespace E_Commerce.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace E_Commerce.Models
 {
     public class Product
     {
+        public int Id { get; set; }
+        public string? Name { get; set; }
+        public string? Detail { get; set; }
+        public string? ImageUrl { get; set; }
+        public decimal Price { get; set; }
+        public bool IsTrending { get; set; }
+
     }
 }

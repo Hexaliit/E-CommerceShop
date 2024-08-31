@@ -1,0 +1,22 @@
+﻿@model E_Commerce.Models.Product
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>
+
+        </title>
+    </head>
+
+    <body>
+
+        <div>
+            <img src="@Model.ImageUrl"/>
+            <h3>@Model.Name</h3>
+            <p>@Model.Detail</p>
+            <h5>@Model.Price.ToString("c")</h5>
+        </div>
+
+    </body>
+</html>
