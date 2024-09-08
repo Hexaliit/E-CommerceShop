@@ -13,6 +13,10 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
 
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+
+builder.Services.AddScoped<IShoppingCartItemRepository, ShoppingCartRepository>(s => ShoppingCartRepository.GetCart(s));
+
 builder.Services.AddSession();
 
 builder.Services.AddHttpContextAccessor();
@@ -33,6 +37,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

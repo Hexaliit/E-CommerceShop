@@ -1,9 +1,4 @@
-﻿@model IEnumerable<Product>
-
-
-
-    ﻿
-<section data-bs-version="5.1" class="info3 cid-tsEY2vwh5a mbr-parallax-background" id="info3-b">
+﻿﻿<section data-bs-version="5.1" class="info3 cid-tsEY2vwh5a mbr-parallax-background" id="info3-b">
 
     <div class="mbr-overlay" style="opacity:0.9; background-image: url('https://images.unsplash.com/photo-1580933073521-dc49ac0d4e6a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2000&q=80');"></div>
 
@@ -36,17 +31,7 @@
             <h5 class="mbr-section-subtitle mbr-fonts-style align-center mb-0 mt-2 display-5">The secret to a perfect cup , every time...</h5>
         </div>
 
-        @foreach (var product in Model)
-        {
-            <div>
-                <img src="@product.ImageUrl" />
-                <a asp-controller="Products" asp-action="Detail" asp-route-id="@product.Id"><h3>@product.Name</h3></a>
-                <i>@product.Price</i>
-            </div>
-        }
-        <!--
-            <partial name="_ProductCard"></partial>
-        -->
+        <partial name="_ProductCard" />
 
     </div>
     </div>
