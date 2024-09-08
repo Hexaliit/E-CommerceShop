@@ -1,9 +1,11 @@
 ﻿using E_Commerce.Models;
 using E_Commerce.Models.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace E_Commerce.Controllers
 {
+    [Authorize]
     public class OrdersController : Controller
     {
         private readonly IOrderRepository orderRepository;

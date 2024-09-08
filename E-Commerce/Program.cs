@@ -2,6 +2,7 @@ using E_Commerce.Data;
 using E_Commerce.Models.Interfaces;
 using E_Commerce.Models.Services;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,8 @@ builder.Services.AddControllersWithViews();
 
 
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("EcommerceShopConnectionString")));
+
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
@@ -20,6 +23,8 @@ builder.Services.AddScoped<IShoppingCartItemRepository, ShoppingCartRepository>(
 builder.Services.AddSession();
 
 builder.Services.AddHttpContextAccessor();
+
+builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
@@ -41,6 +46,8 @@ app.UseRouting();
 app.UseAuthentication();
 
 app.UseAuthorization();
+
+app.MapRazorPages();
 
 app.MapControllerRoute(
     name: "default",
